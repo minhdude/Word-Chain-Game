@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Chain Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        #timer {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .word-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .word-list h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .word-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .word-list ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="game-container">
+            <h1>Word Chain Game</h1>
+            <input type="text" id="playerInput" placeholder="Nhập từ ghép của bạn">
+            <button onclick="submitPhrase()">Gửi</button>
+            <button id="restartButton" onclick="restartGame()" style="display:none;">Bắt đầu lại</button>
+            <div id="message"></div>
+            <div id="computerChoice"></div>
+            <div id="timer">30</div>
+            <div class="word-list">
+                <h3>Danh sách từ đã nhập</h3>
+                <ul id="wordList">
+                    <!-- Danh sách từ của người chơi và máy tính sẽ được cập nhật bằng JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
